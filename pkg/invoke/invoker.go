@@ -488,11 +488,6 @@ func (i *Invoker) Resume(ctx context.Context, c kclient.WithWatch, thread *v1.Th
 		return err
 	}
 
-	modelProvider, err := render.ResolveToolReference(ctx, c, types.ToolReferenceTypeSystem, thread.Namespace, system.ModelProviderTool)
-	if err != nil {
-		return fmt.Errorf("failed to resolve model provider: %w", err)
-	}
-
 	options := gptscript.Options{
 		GlobalOptions: gptscript.GlobalOptions{
 			Env: append(run.Spec.Env,
@@ -513,8 +508,7 @@ func (i *Invoker) Resume(ctx context.Context, c kclient.WithWatch, thread *v1.Th
 				"OTTO8_DEFAULT_VISION_MODEL="+string(types.DefaultModelAliasTypeVision),
 				"GPTSCRIPT_HTTP_ENV=OTTO8_TOKEN,OTTO8_RUN_ID,OTTO8_THREAD_ID,OTTO8_WORKFLOW_ID,OTTO8_WORKFLOW_STEP_ID,OTTO8_AGENT_ID",
 			),
-			DefaultModel:         run.Spec.DefaultModel,
-			DefaultModelProvider: modelProvider,
+			DefaultModel: run.Spec.DefaultModel,
 		},
 		Input:              run.Spec.Input,
 		Workspace:          thread.Status.WorkspaceID,

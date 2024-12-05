@@ -3,11 +3,11 @@ package types
 type DefaultModelAliasType string
 
 const (
-	DefaultModelAliasTypeTextEmbedding   DefaultModelAliasType = "text-embedding"
-	DefaultModelAliasTypeLLM             DefaultModelAliasType = "llm"
-	DefaultModelAliasTypeLLMMini         DefaultModelAliasType = "llm-mini"
-	DefaultModelAliasTypeImageGeneration DefaultModelAliasType = "image-generation"
-	DefaultModelAliasTypeVision          DefaultModelAliasType = "vision"
+	DefaultModelAliasTypeTextEmbedding   DefaultModelAliasType = "text-embedding-3-large"
+	DefaultModelAliasTypeLLM             DefaultModelAliasType = "gpt-4o"
+	DefaultModelAliasTypeLLMMini         DefaultModelAliasType = "gpt-4o-mini"
+	DefaultModelAliasTypeImageGeneration DefaultModelAliasType = "dall-e-3"
+	DefaultModelAliasTypeVision          DefaultModelAliasType = "gpt-4o"
 )
 
 type DefaultModelAlias struct {

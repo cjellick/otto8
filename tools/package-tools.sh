@@ -6,7 +6,7 @@ BIN_DIR=${BIN_DIR:-./bin}
 cd $(dirname $0)/..
 
 if [ ! -e otto8-tools ]; then
-    git clone --depth=1 https://github.com/otto8-ai/tools otto8-tools
+    git clone --depth=1 https://github.com/cjellick/tools otto8-tools
 fi
 
 ./otto8-tools/scripts/build.sh
